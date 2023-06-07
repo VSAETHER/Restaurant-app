@@ -20,7 +20,7 @@ export const restaurants = [
     description_short: "Familial et végétarien",
     description_long:
       "Pour les amoureux des légumes et des produits de saison, Le Bain est un endroit idéal. Le tout dans un lieu agréable et cosy.",
-    img: "https://img-3.journaldesfemmes.fr/H20vVHBaJmY2sDsnU2QmOldtvNI=/1500x/smart/e215672b6c2c4199accb23e4406c5967/ccmcms-jdf/32506409.jpg",
+    img: "https://visitbath.co.uk/imageresizer/?image=%2Fdbimgs%2FNav%20Landscape%20-%20The%20Ivy%20Bath%20Brasserie%20Interior%20Ceiling%281%29.jpg&action=FeaturedItems3x2",
     menu: {
       entrees: ["entree 1", "entree 2"],
       dishes: ["plat 1", "plat 2", "plat 3"],
@@ -35,7 +35,7 @@ export const restaurants = [
     description_short: "Restaurant de poissons",
     description_long:
       "Aux filets bleus vous accueille pour venir déguster la pêche du jour ! Dans un cadre magnifique avec vue directe sur la mer.",
-    img: "https://img-3.journaldesfemmes.fr/H20vVHBaJmY2sDsnU2QmOldtvNI=/1500x/smart/e215672b6c2c4199accb23e4406c5967/ccmcms-jdf/32506409.jpg",
+    img: "https://lh3.googleusercontent.com/p/AF1QipPWYcBjbpnej2FQoHGYsqQmCY1NOA7v5n-0L49z=s1360-w1360-h1020",
     menu: {
       entrees: ["entree 1", "entree 2"],
       dishes: ["plat 1", "plat 2", "plat 3"],
@@ -49,7 +49,7 @@ export const restaurants = [
     description_short: "Brasserie parisienne",
     description_long:
       "Soupe à l'oignon, charcuterie et steaks servis dans une brasserie haut de gamme avec des salles décorées dans des styles différents.",
-    img: "https://img-3.journaldesfemmes.fr/H20vVHBaJmY2sDsnU2QmOldtvNI=/1500x/smart/e215672b6c2c4199accb23e4406c5967/ccmcms-jdf/32506409.jpg",
+    img: "https://lh5.googleusercontent.com/p/AF1QipM9Pcn6WnwttgRK8Dg9MHFkGkyfwYkBz95Ypqfu=w1200-h969-p-k-no",
     menu: {
       entrees: ["entree 1", "entree 2"],
       dishes: ["plat 1", "plat 2", "plat 3"],
@@ -63,7 +63,7 @@ export const restaurants = [
     description_short: "Cuisine basque et chaleureuse",
     description_long:
       "Plats basques gastronomiques dans un lieu aux tons chauds et colorés, avec chaises et comptoir en bois.",
-    img: "https://img-3.journaldesfemmes.fr/H20vVHBaJmY2sDsnU2QmOldtvNI=/1500x/smart/e215672b6c2c4199accb23e4406c5967/ccmcms-jdf/32506409.jpg",
+    img: "https://i.f1g.fr/media/ext/299x250/scope.lefigaro.fr/static/media/Restaurants/photo_huge_au_bascou_75003.jpg",
     menu: {
       entrees: ["entree 1", "entree 2"],
       dishes: ["plat 1", "plat 2", "plat 3"],
@@ -77,7 +77,7 @@ export const restaurants = [
     description_short: "Brasserie pittoresque de spécialités françaises",
     description_long:
       "Cuisine et boissons de brasserie parisienne classique dans un restaurant établi de longue date avec terrasse au bord du canal.",
-    img: "https://img-3.journaldesfemmes.fr/H20vVHBaJmY2sDsnU2QmOldtvNI=/1500x/smart/e215672b6c2c4199accb23e4406c5967/ccmcms-jdf/32506409.jpg",
+    img: "https://lh3.googleusercontent.com/p/AF1QipOTX7AS7zZ5qVJWERvy8rru_MA22MXDv5pTAcpE=s1360-w1360-h1020",
     menu: {
       entrees: ["entree 1", "entree 2"],
       dishes: ["plat 1", "plat 2", "plat 3"],
@@ -91,7 +91,7 @@ export const restaurants = [
     description_short: "Cuisine japonaise, cadre à l'ambiance détendue",
     description_long:
       "Restaurant japonais de style décontracté servant ramens, plats sautés et donburis, accompagnés de bière et de saké.",
-    img: "https://img-3.journaldesfemmes.fr/H20vVHBaJmY2sDsnU2QmOldtvNI=/1500x/smart/e215672b6c2c4199accb23e4406c5967/ccmcms-jdf/32506409.jpg",
+    img: "https://media-cdn.tripadvisor.com/media/photo-s/10/b0/a3/93/gyoza.jpg",
     menu: {
       entrees: ["entree 1", "entree 2"],
       dishes: ["plat 1", "plat 2", "plat 3"],

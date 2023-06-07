@@ -1,5 +1,4 @@
-import React, { createContext, useContext, useState } from "react";
-import { restaurant } from "../models/models";
+import { createContext, useContext } from "react";
 
 type restaurantContextType = {
   id: number;
