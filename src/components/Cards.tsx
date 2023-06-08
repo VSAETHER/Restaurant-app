@@ -6,7 +6,10 @@ const Cards = () => {
   return (
     <>
       <Header></Header>
-      <div className="flex flex-1 flex-wrap gap-10 justify-around mx-20">
+      <section className="flex justify-center mt-8">
+        <h1 className="text-6xl">Restaurants</h1>
+      </section>
+      <div className="flex flex-wrap gap-8 justify-evenly mx-20">
         {restaurants.map((restaurant) => (
           <Card
             key={restaurant.id}

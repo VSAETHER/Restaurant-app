@@ -16,6 +16,9 @@ const Favorites = () => {
   return (
     <>
       <Header></Header>
+      <section className="flex justify-center mt-8">
+        <h1 className="text-6xl">Favorites</h1>
+      </section>
       <div className="flex flex-wrap gap-8 justify-evenly mx-20">
         {restaurantsFav.map((restaurant) => (
           <Card
