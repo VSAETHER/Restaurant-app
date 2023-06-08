@@ -7,10 +7,9 @@ type FavoritesContextType = {
   id: number[];
   toggleFavorites: (idNumber: number) => void;
 };
-export const FavoritesContext = createContext<FavoritesContextType>(
+const FavoritesContext = createContext<FavoritesContextType>(
   {} as FavoritesContextType
 );
-
 export const useFavoritesContext = () => useContext(FavoritesContext);
 
 export const FavoritesContextProvider = ({ children }: ContextProps) => {
@@ -20,8 +19,14 @@ export const FavoritesContextProvider = ({ children }: ContextProps) => {
     if (localStorage.getItem("restaurantId")) {
       let fav: number[] = JSON.parse(localStorage.getItem("restaurantId")!);
       if (fav.includes(idNumber)) {
-        let position = fav.findIndex((id) => id == idNumber);
-        fav.splice(position, 1);
+        if (
+          window.confirm(
+            "Are you sure you want to remove this restaurant from favorites?"
+          )
+        ) {
+          let position = fav.findIndex((id) => id == idNumber);
+          fav.splice(position, 1);
+        }
       } else {
         fav.push(idNumber);
       }
@@ -29,6 +34,7 @@ export const FavoritesContextProvider = ({ children }: ContextProps) => {
     } else localStorage.setItem("restaurantId", JSON.stringify([idNumber]));
     setId(JSON.parse(localStorage.getItem("restaurantId")!));
   };
+
   return (
     <FavoritesContext.Provider value={{ toggleFavorites, id }}>
       {children}

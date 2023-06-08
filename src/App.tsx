@@ -16,6 +16,8 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/:id" element={<Details />} />
             <Route path="/Favorites" element={<Favorites />} />
+            <Route path="/Favorites/:id" element={<Details />} />
+            {/* <Route path="/*" element={<Home />} /> */}
           </Routes>
         </FavoritesContextProvider>
       </restaurantContext.Provider>
