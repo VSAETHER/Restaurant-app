@@ -14,10 +14,6 @@ type props = {
 const Card = ({ id, image, description, name }: props) => {
   const { toggleFavorites } = useFavoritesContext();
 
-  // let fav: number[] = [];
-  // if (localStorage.getItem("restaurantId"))
-  //   fav = JSON.parse(localStorage.getItem("restaurantId")!);
-
   return (
     <section className=" w-96 flex bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 flex-col items-center mt-10">
       <section className="w-full relative mb-4">

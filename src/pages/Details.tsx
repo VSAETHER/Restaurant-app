@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import { useRestaurantContext } from "../components/restaurantContext";
 import Header from "../components/header";
 import { useFavoritesContext } from "../components/FavoritesContext";
+import { isFavorite } from "../components/FavoritesContext";
 
 const Details = () => {
   const { id } = useParams();
@@ -9,9 +10,7 @@ const Details = () => {
   const restaurants = useRestaurantContext();
   const { toggleFavorites } = useFavoritesContext();
 
-  let fav: number[] = [];
-  if (localStorage.getItem("restaurantId"))
-    fav = JSON.parse(localStorage.getItem("restaurantId")!);
+  const fav = isFavorite();
 
   return (
     <section>

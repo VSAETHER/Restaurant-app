@@ -22,23 +22,21 @@ export const FavoritesContextProvider = ({ children }: ContextProps) => {
   const [id, setId] = useState<number[]>([]);
 
   const toggleFavorites = (idNumber: number) => {
-    if (localStorage.getItem("restaurantId")) {
-      let fav: number[] = JSON.parse(localStorage.getItem("restaurantId")!);
-      if (fav.includes(idNumber)) {
-        if (
-          window.confirm(
-            "Are you sure you want to remove this restaurant from favorites?"
-          )
-        ) {
-          let position = fav.findIndex((id) => id == idNumber);
-          fav.splice(position, 1);
-        }
-      } else {
-        fav.push(idNumber);
+    const fav = isFavorite();
+    if (fav.includes(idNumber)) {
+      if (
+        window.confirm(
+          "Are you sure you want to remove this restaurant from favorites?"
+        )
+      ) {
+        let position = fav.findIndex((id: any) => id == idNumber);
+        fav.splice(position, 1);
       }
-      localStorage.setItem("restaurantId", JSON.stringify(fav));
-    } else localStorage.setItem("restaurantId", JSON.stringify([idNumber]));
-    setId(JSON.parse(localStorage.getItem("restaurantId")!));
+    } else {
+      fav.push(idNumber);
+    }
+    localStorage.setItem("restaurantId", JSON.stringify(fav));
+    setId(fav);
   };
 
   return (
