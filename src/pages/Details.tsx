@@ -9,6 +9,10 @@ const Details = () => {
   const restaurants = useRestaurantContext();
   const { toggleFavorites } = useFavoritesContext();
 
+  let fav: number[] = [];
+  if (localStorage.getItem("restaurantId"))
+    fav = JSON.parse(localStorage.getItem("restaurantId")!);
+
   return (
     <section>
       <Header></Header>
@@ -23,12 +27,21 @@ const Details = () => {
           <p className="p-2 text-lg m-6 w-1/2 text-center">
             {restaurants[idNumber].description_long}
           </p>
-          <button
-            className="m-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-3xl"
-            onClick={() => toggleFavorites(idNumber)}
-          >
-            Add to favorites
-          </button>
+          {fav.includes(idNumber) ? (
+            <button
+              className="m-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-3xl"
+              onClick={() => toggleFavorites(idNumber)}
+            >
+              Remove from favorites
+            </button>
+          ) : (
+            <button
+              className="m-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-3xl"
+              onClick={() => toggleFavorites(idNumber)}
+            >
+              Add to favorites
+            </button>
+          )}
 
           <section className="flex flex-col bg-blue-100 items-center w-2/3 flex border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 my-10 pb-20">
             <h1 className="m-4">Menu</h1>
