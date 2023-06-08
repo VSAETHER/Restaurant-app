@@ -9,21 +9,20 @@ const Details = () => {
   const idNumber = parseInt(id!);
   const restaurants = useRestaurantContext();
   const { toggleFavorites } = useFavoritesContext();
-
   const fav = isFavorite();
 
   return (
     <section>
       <Header></Header>
       <section className="flex justify-center">
-        <section className="flex flex-col items-center w-4/5 flex bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 mt-10">
+        <section className="flex flex-col items-center w-full sm:w-4/5 flex bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 sm:m-10">
           <h1 className="p-4 text-3xl m-10">{restaurants[idNumber].name}</h1>
           <img
             src={restaurants[idNumber].img}
             className="w-3/4 rounded-lg "
           ></img>
 
-          <p className="p-2 text-lg m-6 w-1/2 text-center">
+          <p className="p-2 text-lg m-6 sm:w-1/2 text-center">
             {restaurants[idNumber].description_long}
           </p>
           {fav.includes(idNumber) ? (
@@ -42,7 +41,7 @@ const Details = () => {
             </button>
           )}
 
-          <section className="flex flex-col bg-blue-100 items-center w-2/3 flex border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 my-10 pb-20">
+          <section className="flex flex-col bg-blue-100 items-center w-full sm:w-2/3 flex border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 my-10 pb-20">
             <h1 className="m-4">Menu</h1>
             <h2 className="m-4"> Starters</h2>
             {restaurants[idNumber].menu.entrees.map((entrees) => (
@@ -64,6 +63,7 @@ const Details = () => {
               </p>
             ))}
           </section>
+          <p className="mb-8">{restaurants[idNumber].address}</p>
         </section>
       </section>
     </section>

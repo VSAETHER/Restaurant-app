@@ -15,12 +15,12 @@ const Card = ({ id, image, description, name }: props) => {
   const { toggleFavorites } = useFavoritesContext();
 
   return (
-    <section className=" w-96 flex bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 flex-col items-center mt-10">
+    <section className=" w-full sm:w-96 flex bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 flex-col items-center mt-10">
       <section className="w-full relative mb-4">
         <Link to={`${id}`}>
           <img
             src={image}
-            className="w-full rounded-t-lg object-cover h-80"
+            className="w-full rounded-t-lg object-cover sm:h-80 h-40"
           ></img>
         </Link>
         <button
