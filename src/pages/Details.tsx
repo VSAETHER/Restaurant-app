@@ -47,16 +47,22 @@ const Details = () => {
             <h1 className="m-4">Menu</h1>
             <h2 className="m-4"> Starters</h2>
             {restaurants[idNumber].menu.entrees.map((entrees) => (
-              <p className="m-2 bg-white w-1/2 text-center">{entrees}</p>
+              <p key={entrees} className="m-2 bg-white w-1/2 text-center">
+                {entrees}
+              </p>
             ))}
             <h2 className="m-4"> Mains</h2>
             {restaurants[idNumber].menu.dishes.map((dishes) => (
-              <p className="m-2 bg-white w-1/2 text-center">{dishes}</p>
+              <p key={dishes} className="m-2 bg-white w-1/2 text-center">
+                {dishes}
+              </p>
             ))}
 
             <h2 className="m-4"> Deserts</h2>
             {restaurants[idNumber].menu.deserts.map((deserts) => (
-              <p className="m-2 bg-white w-1/2 text-center">{deserts}</p>
+              <p key={deserts} className="m-2 bg-white w-1/2 text-center">
+                {deserts}
+              </p>
             ))}
           </section>
         </section>

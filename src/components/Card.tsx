@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { useFavoritesContext } from "./FavoritesContext";
 import { AiOutlineHeart } from "react-icons/ai";
 import { AiFillHeart } from "react-icons/ai";
+import { isFavorite } from "./FavoritesContext";
 
 type props = {
   id: number;
@@ -13,9 +14,11 @@ type props = {
 const Card = ({ id, image, description, name }: props) => {
   const { toggleFavorites } = useFavoritesContext();
 
-  let fav: number[] = [];
-  if (localStorage.getItem("restaurantId"))
-    fav = JSON.parse(localStorage.getItem("restaurantId")!);
+  // let fav: number[] = [];
+  // if (localStorage.getItem("restaurantId"))
+  //   fav = JSON.parse(localStorage.getItem("restaurantId")!);
+
+  const fav = isFavorite();
 
   return (
     <section className=" w-96 flex bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 flex-col items-center mt-10">
@@ -28,7 +31,7 @@ const Card = ({ id, image, description, name }: props) => {
           onClick={() => toggleFavorites(id)}
           className="absolute text-3xl right-3"
         >
-          {fav.includes(id) ? (
+          {isFavorite().includes(id) ? (
             <AiFillHeart className="text-red-500 fon"></AiFillHeart>
           ) : (
             <AiOutlineHeart className="text-red-500 fon"></AiOutlineHeart>

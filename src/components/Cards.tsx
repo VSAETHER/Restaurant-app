@@ -1,16 +1,32 @@
 import { useRestaurantContext } from "./restaurantContext";
 import Card from "./Card";
 import Header from "./header";
-const Cards = () => {
+import { restaurantContextType } from "../models/restaurantContextType";
+import { isFavorite } from "./FavoritesContext";
+
+type prop = {
+  Favorites: boolean;
+};
+
+const Cards = ({ Favorites }: prop) => {
   const restaurants = useRestaurantContext();
+  const fav = isFavorite();
+  let restaurantsFav: restaurantContextType[] = [];
+  if (Favorites)
+    restaurantsFav = restaurants.filter((id) => fav.includes(id.id));
+  else restaurantsFav = restaurants;
   return (
     <>
       <Header></Header>
       <section className="flex justify-center mt-8">
-        <h1 className="text-6xl">Restaurants</h1>
+        {Favorites ? (
+          <h1 className="text-6xl">Favorites</h1>
+        ) : (
+          <h1 className="text-6xl">Restaurants</h1>
+        )}
       </section>
       <div className="flex flex-wrap gap-8 justify-evenly mx-20">
-        {restaurants.map((restaurant) => (
+        {restaurantsFav.map((restaurant) => (
           <Card
             key={restaurant.id}
             id={restaurant.id}

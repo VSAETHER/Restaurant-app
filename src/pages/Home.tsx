@@ -1,6 +1,6 @@
 import Cards from "../components/Cards";
 
 const Home = () => {
-  return <Cards />;
+  return <Cards Favorites={false} />;
 };
 export default Home;

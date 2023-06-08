@@ -12,6 +12,12 @@ const FavoritesContext = createContext<FavoritesContextType>(
 );
 export const useFavoritesContext = () => useContext(FavoritesContext);
 
+export const isFavorite = () => {
+  if (localStorage.getItem("restaurantId"))
+    return JSON.parse(localStorage.getItem("restaurantId")!);
+  else return [];
+};
+
 export const FavoritesContextProvider = ({ children }: ContextProps) => {
   const [id, setId] = useState<number[]>([]);
 
