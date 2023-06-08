@@ -20,9 +20,9 @@ const Cards = ({ Favorites }: prop) => {
       <Header></Header>
       <section className="flex justify-center mt-8">
         {Favorites ? (
-          <h1 className="text-6xl">Favorites</h1>
+          <h1 className="text-6xl m-6">Favorites</h1>
         ) : (
-          <h1 className="text-6xl">Restaurants</h1>
+          <h1 className="text-6xl m-6">Restaurants</h1>
         )}
       </section>
       <div className="flex flex-wrap gap-8 justify-evenly mx-20">

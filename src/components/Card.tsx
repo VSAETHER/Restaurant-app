@@ -18,15 +18,15 @@ const Card = ({ id, image, description, name }: props) => {
   // if (localStorage.getItem("restaurantId"))
   //   fav = JSON.parse(localStorage.getItem("restaurantId")!);
 
-  const fav = isFavorite();
-
   return (
     <section className=" w-96 flex bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 flex-col items-center mt-10">
-      <section className="w-full relative">
-        <img
-          src={image}
-          className="w-full rounded-t-lg object-cover h-80"
-        ></img>
+      <section className="w-full relative mb-4">
+        <Link to={`${id}`}>
+          <img
+            src={image}
+            className="w-full rounded-t-lg object-cover h-80"
+          ></img>
+        </Link>
         <button
           onClick={() => toggleFavorites(id)}
           className="absolute text-3xl right-3"
@@ -39,11 +39,11 @@ const Card = ({ id, image, description, name }: props) => {
         </button>
       </section>
 
-      <section className="flex flex-row gap-4 p-5">
+      <section className="flex flex-row gap-4 p-5 mb-4">
         <Link to={`${id}`}>
           <section className="flex flex-col items-center">
             <h1>{name}</h1>
-            <h2>{description}</h2>
+            <h2 className="text-center">{description}</h2>
           </section>
         </Link>
       </section>
