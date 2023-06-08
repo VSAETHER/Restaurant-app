@@ -4,6 +4,8 @@ type prop = {
   id: number;
 };
 
+// The id can come from a state variable maintained in the fav context, then no need to 
+// have the modal as child of so many components
 const ConfirmationModal = ({ id }: prop) => {
   const { removeFavorite, setConfirmationBox, confirmationBox } =
     useFavoritesContext();

@@ -1,3 +1,5 @@
+// Types and interface are defined with a capital letter
+// It is a convention
 export type restaurantContextType = {
   id: number;
   name: string;

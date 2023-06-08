@@ -16,6 +16,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/:id" element={<Details />} />
             <Route path="/Favorites" element={<Favorites />} />
+            {/* You don't need a special route for this one, juste change the link in the fav page */}
             <Route path="/Favorites/:id" element={<Details />} />
           </Routes>
         </FavoritesContextProvider>

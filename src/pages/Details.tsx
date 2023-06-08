@@ -7,18 +7,26 @@ import Header from "../components/Header";
 
 const Details = () => {
   const { id } = useParams();
+  // I'd rather add a fallback if the id is not defined or does not match any restaurant
+  // There is a problem if hyou enter /99 in the url for instance.
+  // So it is better to display a message for the user <p>No restaurant found</p> for instance
   const idNumber = parseInt(id!);
   const restaurants = useRestaurantContext();
   const { toggleFavorites, confirmationBox } = useFavoritesContext();
   const fav = isFavorite();
+  // Remove console logs ;)
   console.log(confirmationBox);
 
   return (
     <section>
+      {/* There is a better way to handle this modal, it is to put it in the app and 
+      handle the shwo modal display in the favorites context */}
       <ConfirmationModal id={idNumber}></ConfirmationModal>
       <Header></Header>
       <section className="flex justify-center">
         <section className="flex flex-col items-center w-full sm:w-4/5 flex bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 sm:m-10">
+          {/* Rather than reaching the restaurant with its index, create a const 
+          once and for all before the return of the component */}
           <h1 className="p-4 text-3xl m-10">{restaurants[idNumber].name}</h1>
           <img
             src={restaurants[idNumber].img}
