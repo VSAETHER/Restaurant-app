@@ -1,4 +1,4 @@
-import { useRestaurantContext } from "./restaurantContext";
+import { useRestaurantContext } from "./RestaurantContext";
 import Card from "./Card";
 import { restaurantContextType } from "../models/restaurantContextType";
 import { isFavorite, useFavoritesContext } from "./FavoritesContext";
@@ -29,7 +29,7 @@ const Cards = ({ Favorites }: prop) => {
         )}
       </section>
 
-      <div className="flex flex-wrap gap-8 justify-evenly sm:mx-20">
+      <section className="flex flex-wrap gap-8 justify-evenly sm:mx-20">
         {restaurantsFav.map((restaurant) => (
           <Card
             key={restaurant.id}
@@ -39,7 +39,7 @@ const Cards = ({ Favorites }: prop) => {
             name={restaurant.name}
           ></Card>
         ))}
-      </div>
+      </section>
     </section>
   );
 };

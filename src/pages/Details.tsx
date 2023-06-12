@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import { useRestaurantContext } from "../components/restaurantContext";
+import { useRestaurantContext } from "../components/RestaurantContext";
 import { useFavoritesContext } from "../components/FavoritesContext";
 import { isFavorite } from "../components/FavoritesContext";
 import ConfirmationModal from "../components/ConfirmationModal";
@@ -30,14 +30,14 @@ const Details = () => {
           </p>
           {fav.includes(idNumber) ? (
             <button
-              className="m-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-3xl"
+              className="m-4 bg-red-700 hover:bg-red-900 text-white font-bold py-2 px-4 rounded-3xl"
               onClick={() => toggleFavorites(idNumber)}
             >
               Remove from favorites
             </button>
           ) : (
             <button
-              className="m-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-3xl"
+              className="m-4 bg-blue-700 hover:bg-blue-900 text-white font-bold py-2 px-4 rounded-3xl"
               onClick={() => toggleFavorites(idNumber)}
             >
               Add to favorites

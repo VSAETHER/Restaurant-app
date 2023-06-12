@@ -4,13 +4,13 @@ import Home from "./pages/Home";
 import Details from "./pages/Details";
 import Favorites from "./pages/Favorites";
 import { restaurants } from "./data";
-import { restaurantContext } from "./components/restaurantContext";
+import { RestaurantContext } from "./components/RestaurantContext";
 import { FavoritesContextProvider } from "./components/FavoritesContext";
 
 function App() {
   return (
     <>
-      <restaurantContext.Provider value={restaurants}>
+      <RestaurantContext.Provider value={restaurants}>
         <FavoritesContextProvider>
           <Routes>
             <Route path="/" element={<Home />} />
@@ -19,7 +19,7 @@ function App() {
             <Route path="/Favorites/:id" element={<Details />} />
           </Routes>
         </FavoritesContextProvider>
-      </restaurantContext.Provider>
+      </RestaurantContext.Provider>
     </>
   );
 }

@@ -15,8 +15,8 @@ const Card = ({ id, image, description, name }: props) => {
   const { toggleFavorites } = useFavoritesContext();
 
   return (
-    <section className=" w-full sm:w-96 flex bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 flex-col items-center mt-10">
-      <section className="w-full relative mb-4">
+    <article className=" w-full sm:w-96 flex bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 flex-col items-center mt-10">
+      <article className="w-full relative mb-4">
         <Link to={`${id}`}>
           <img
             src={image}
@@ -39,17 +39,17 @@ const Card = ({ id, image, description, name }: props) => {
             <AiOutlineHeart className="text-red-500 fon"></AiOutlineHeart>
           </button>
         )}
-      </section>
+      </article>
 
-      <section className="flex flex-row gap-4 p-5 mb-4">
+      <article className="flex flex-row gap-4 p-5 mb-4">
         <Link to={`${id}`}>
           <section className="flex flex-col items-center">
             <h1>{name}</h1>
             <h2 className="text-center">{description}</h2>
           </section>
         </Link>
-      </section>
-    </section>
+      </article>
+    </article>
   );
 };
 export default Card;

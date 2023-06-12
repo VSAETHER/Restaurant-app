@@ -14,6 +14,11 @@ type FavoritesContextType = {
 const FavoritesContext = createContext<FavoritesContextType>(
   {} as FavoritesContextType
 );
+
+const setFavoritesList = (id: number[]) => {
+  localStorage.setItem("restaurantId", JSON.stringify(id));
+};
+
 export const useFavoritesContext = () => useContext(FavoritesContext);
 
 export const isFavorite = () => {
@@ -29,13 +34,12 @@ export const FavoritesContextProvider = ({ children }: ContextProps) => {
 
   const toggleFavorites = (idNumber: number) => {
     const fav = isFavorite();
-
     if (fav.includes(idNumber)) {
       setConfirmationBox(true);
       setCurrentId(idNumber);
     } else {
       fav.push(idNumber);
-      localStorage.setItem("restaurantId", JSON.stringify(fav));
+      setFavoritesList(fav);
       setIdList(fav);
     }
   };
@@ -44,7 +48,7 @@ export const FavoritesContextProvider = ({ children }: ContextProps) => {
     const fav = isFavorite();
     let position = fav.findIndex((id: any) => id == idNumber);
     fav.splice(position, 1);
-    localStorage.setItem("restaurantId", JSON.stringify(fav));
+    setFavoritesList(fav);
     setIdList(fav);
     setConfirmationBox(false);
   };
