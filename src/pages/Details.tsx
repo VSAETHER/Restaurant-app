@@ -1,18 +1,21 @@
 import { useParams } from "react-router-dom";
 import { useRestaurantContext } from "../components/restaurantContext";
-import Header from "../components/header";
 import { useFavoritesContext } from "../components/FavoritesContext";
 import { isFavorite } from "../components/FavoritesContext";
+import ConfirmationModal from "../components/ConfirmationModal";
+import Header from "../components/Header";
 
 const Details = () => {
   const { id } = useParams();
   const idNumber = parseInt(id!);
   const restaurants = useRestaurantContext();
-  const { toggleFavorites } = useFavoritesContext();
+  const { toggleFavorites, confirmationBox } = useFavoritesContext();
   const fav = isFavorite();
+  console.log(confirmationBox);
 
   return (
     <section>
+      <ConfirmationModal id={idNumber}></ConfirmationModal>
       <Header></Header>
       <section className="flex justify-center">
         <section className="flex flex-col items-center w-full sm:w-4/5 flex bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 sm:m-10">

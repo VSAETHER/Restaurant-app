@@ -4,8 +4,12 @@ type ContextProps = {
   children: React.ReactNode;
 };
 type FavoritesContextType = {
-  id: number[];
+  currentId: number;
+  idList: number[];
   toggleFavorites: (idNumber: number) => void;
+  removeFavorite: (idNumber: number) => void;
+  confirmationBox: boolean;
+  setConfirmationBox: React.Dispatch<React.SetStateAction<boolean>>;
 };
 const FavoritesContext = createContext<FavoritesContextType>(
   {} as FavoritesContextType
@@ -19,28 +23,43 @@ export const isFavorite = () => {
 };
 
 export const FavoritesContextProvider = ({ children }: ContextProps) => {
-  const [id, setId] = useState<number[]>([]);
+  const [idList, setIdList] = useState<number[]>([]);
+  const [currentId, setCurrentId] = useState<number>(10);
+  const [confirmationBox, setConfirmationBox] = useState<boolean>(false);
 
   const toggleFavorites = (idNumber: number) => {
     const fav = isFavorite();
+
     if (fav.includes(idNumber)) {
-      if (
-        window.confirm(
-          "Are you sure you want to remove this restaurant from favorites?"
-        )
-      ) {
-        let position = fav.findIndex((id: any) => id == idNumber);
-        fav.splice(position, 1);
-      }
+      setConfirmationBox(true);
+      setCurrentId(idNumber);
     } else {
       fav.push(idNumber);
+      localStorage.setItem("restaurantId", JSON.stringify(fav));
+      setIdList(fav);
     }
+  };
+
+  const removeFavorite = (idNumber: number) => {
+    const fav = isFavorite();
+    let position = fav.findIndex((id: any) => id == idNumber);
+    fav.splice(position, 1);
     localStorage.setItem("restaurantId", JSON.stringify(fav));
-    setId(fav);
+    setIdList(fav);
+    setConfirmationBox(false);
   };
 
   return (
-    <FavoritesContext.Provider value={{ toggleFavorites, id }}>
+    <FavoritesContext.Provider
+      value={{
+        toggleFavorites,
+        removeFavorite,
+        idList,
+        confirmationBox,
+        setConfirmationBox,
+        currentId,
+      }}
+    >
       {children}
     </FavoritesContext.Provider>
   );

@@ -1,14 +1,16 @@
 import { useRestaurantContext } from "./restaurantContext";
 import Card from "./Card";
-import Header from "./header";
 import { restaurantContextType } from "../models/restaurantContextType";
-import { isFavorite } from "./FavoritesContext";
+import { isFavorite, useFavoritesContext } from "./FavoritesContext";
+import ConfirmationModal from "./ConfirmationModal";
+import Header from "./Header";
 
 type prop = {
   Favorites: boolean;
 };
 
 const Cards = ({ Favorites }: prop) => {
+  const { currentId } = useFavoritesContext();
   const restaurants = useRestaurantContext();
   const fav = isFavorite();
   let restaurantsFav: restaurantContextType[] = [];
@@ -16,7 +18,8 @@ const Cards = ({ Favorites }: prop) => {
     restaurantsFav = restaurants.filter((id) => fav.includes(id.id));
   else restaurantsFav = restaurants;
   return (
-    <>
+    <section className="mb-10">
+      <ConfirmationModal id={currentId}></ConfirmationModal>
       <Header></Header>
       <section className="flex justify-center mt-8">
         {Favorites ? (
@@ -25,6 +28,7 @@ const Cards = ({ Favorites }: prop) => {
           <h1 className="text-4xl md:text-6xl m-6">Restaurants</h1>
         )}
       </section>
+
       <div className="flex flex-wrap gap-8 justify-evenly sm:mx-20">
         {restaurantsFav.map((restaurant) => (
           <Card
@@ -36,7 +40,7 @@ const Cards = ({ Favorites }: prop) => {
           ></Card>
         ))}
       </div>
-    </>
+    </section>
   );
 };
 

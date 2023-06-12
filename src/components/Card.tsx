@@ -23,16 +23,22 @@ const Card = ({ id, image, description, name }: props) => {
             className="w-full rounded-t-lg object-cover sm:h-80 h-40"
           ></img>
         </Link>
-        <button
-          onClick={() => toggleFavorites(id)}
-          className="absolute text-3xl right-3"
-        >
-          {isFavorite().includes(id) ? (
-            <AiFillHeart className="text-red-500 fon"></AiFillHeart>
-          ) : (
+
+        {isFavorite().includes(id) ? (
+          <button
+            onClick={() => toggleFavorites(id)}
+            className="absolute text-3xl right-3"
+          >
+            <AiFillHeart className="text-red-500 fon"></AiFillHeart>{" "}
+          </button>
+        ) : (
+          <button
+            onClick={() => toggleFavorites(id)}
+            className="absolute text-3xl right-3"
+          >
             <AiOutlineHeart className="text-red-500 fon"></AiOutlineHeart>
-          )}
-        </button>
+          </button>
+        )}
       </section>
 
       <section className="flex flex-row gap-4 p-5 mb-4">
